@@ -1,58 +1,76 @@
 
-import { motion } from "framer-motion"
+ 
+ import { motion } from "framer-motion";
+import { features } from "../constants";
+
 
 const WhyChooseUs = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      transition={{ duration: 0.6 }} 
-      viewport={{ once: true }}
-      className="mb-10"
-    >
-    <section class="py-16 bg-gradient-to-r from-gray-200 to-gray-100 font-poppins">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-4xl max-sm:text-3xl font-bold text-gray-900">Why Choose Us?</h2>
-    <p class="text-gray-600 mt-3 text-lg max-w-2xl mx-auto">
-      We provide the best packers and movers service across India with top-notch reliability and customer satisfaction.
-    </p>
+    <section className="py-24 bg-white font-poppins overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="text-blue-600 font-bold tracking-widest uppercase text-sm"
+            >
+              The Best Packers And Movers Advantage
+            </motion.span>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-black text-gray-900 mt-2">
+              Why thousands trust us with their <span className="text-blue-600">belongings</span>
+            </motion.h2>
+          </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-      <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-        <div class="text-blue-500 max-sm:text-3xl text-4xl lg:text-5xl mb-4"><i className="fa-solid fa-truck-fast"></i></div>
-        <h3 class="text-xl font-semibold text-gray-800">Fast & Reliable Service</h3>
-        <p class="text-gray-600 mt-2">We ensure quick and efficient moving services without delays.</p>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-gray-500 text-lg md:text-right max-w-sm">
+            We don't just move boxes, we move lives with reliability and precision.
+          </motion.p>
+        </div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          {features.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="group p-8 bg-[#f8faff] rounded-[2rem] border border-blue-50/50 hover:bg-blue-600 transition-all duration-500 relative overflow-hidden"
+            >
+              <div className="absolute -right-8 -top-8 w-24 h-24 bg-white/10 rounded-full transition-all duration-500 group-hover:scale-[3]" />
+
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white shadow-lg rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors duration-500">
+                  <i className={`fa-solid ${item.icon} text-2xl text-blue-600 group-hover:text-white`}></i>
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-white transition-colors duration-500">{item.title}</h3>
+
+                <p className="text-gray-600 group-hover:text-blue-100 transition-colors duration-500 leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
+    </section>
+  );
+};
 
-      <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-        <div class="text-blue-500 max-sm:text-3xl text-4xl lg:text-5xl mb-4"><i className="fa-solid fa-indian-rupee-sign"></i></div>
-        <h3 class="text-xl font-semibold text-gray-800">Affordable Pricing</h3>
-        <p class="text-gray-600 mt-2">Get the best moving experience at budget-friendly rates.</p>
-      </div>
-
-      <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-        <div class="text-blue-500 max-sm:text-3xl text-4xl lg:text-5xl mb-4"><i className="fa-solid fa-globe"></i></div>
-        <h3 class="text-xl font-semibold text-gray-800">Nationwide Coverage</h3>
-        <p class="text-gray-600 mt-2"> We provide seamless relocation services across India</p>
-      </div>
-
-      <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-        <div class="text-blue-500 max-sm:text-3xl text-4xl lg:text-5xl mb-4"><i className="fa-solid fa-clock"></i></div>
-        <h3 class="text-xl font-semibold text-gray-800"> On-Time Delivery</h3>
-        <p class="text-gray-600 mt-2">We value your time and ensure timely pickups & deliveries.</p>
-      </div>
-
-      <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-        <div class="text-blue-500 max-sm:text-3xl text-4xl lg:text-5xl mb-4"><i className="fa-solid fa-user-tie"></i></div>
-        <h3 class="text-xl font-semibold text-gray-800">Experienced Team</h3>
-        <p class="text-gray-600 mt-2">Our professionals have years of experience in hassle-free moving.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    </motion.div>
-  )
-}
-
-export default WhyChooseUs
+export default WhyChooseUs;
