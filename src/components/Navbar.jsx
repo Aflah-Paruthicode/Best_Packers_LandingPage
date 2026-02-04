@@ -1,68 +1,58 @@
-
-import { motion } from 'framer-motion'
-
-import logo from '/icon-Photoroom.webp'
-import { Menu , X } from "lucide-react"
-import { useState } from 'react'
-
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  
-    const [isOpen, setIsOpen] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    const toggleNavbar = ( ) => {
-        setIsOpen(!isOpen)
-    }
-
-  return ( 
-    <header className=" fixed flex font-poppins top-0 z-[9999] flex-wrap mx-auto w-full items-center justify-between shadow-md px-5  lg:px-32 bg-white lg:py-4 py-2" > 
-
-    <div className="logo max-sm:h-14 h-16 w-20 flex items-center ">
-        <img src={logo} className='max-md:w-12 w-16' alt="logo" />
-    </div>
-        <nav className=' flex justify-end'>
-        <div className='hidden justify-between items-center w-full md:flex' >
-            <Nav close='close' setIsOpen={setIsOpen} isOpen={isOpen} />
-          </div>
-          <div className='md:hidden' >
-            <button onClick={toggleNavbar} >{ isOpen ? <X /> : <Menu />}</button>
-          </div>
-        </nav>
-
-        {isOpen && 
-        <motion.div initial={{ y: -20,opacity: 0 }} // Start off-screen
-        animate={{ y: isOpen ? 0 : -20, opacity: 1 }} // Slide in & out
-        transition={{ duration: 0.2, ease: "easeInOut" }} className='flex basis-full flex-col items-center absolute right-10 bg-white px-4 py-6 shadow-2xl border-t-1 border-[#336aea] rounded-2xl top-16 ' >
-            <Nav menu='flex-col items-center gap-2' />
-        </motion.div>
-        }
-
-    </header>
-  )
-}
-
-export default Navbar
-
-
-const Nav = (props) => {
+  const navLinks = [
+    { name: "Home", id: "Home" },
+    { name: "Services", id: "Services" },
+    { name: "About", id: "About" },
+    { name: 'Contact', id: 'Contact-us' },
+  ];
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smoot" });
+    setIsMobileMenuOpen(false);
+  };
 
-    let menu  = props.menu ?? ''
+  return (
+    <nav
+      className={`fixed top-0 w-full z-[1000] transition-all duration-500 ${
+        isScrolled ? "py-3 bg-black/60 backdrop-blur-xl border-b border-white/10" : "py-6 bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          <div className="w-16 h-14 rounded-2xl flex items-center px-2 bg-white justify-center shadow-lg shadow-blue-500/30">
+            <img src="/logo.webp" alt="" />
+          </div>
 
-   
+          <span className="text-white font-bold text-xl tracking-tighter uppercase ">
+            <span className="text-blue-500">Best Packers </span> And Movers
+          </span>
+        </div>
 
-    return (
-        <ul className={`flex w-full ${menu} gap-4 items-center justify-evenly `}>
-                <motion.li whileTap={{ scale: 0.9 }} ><button className='hover:bg-blue-400 hover:p-3 hover:text-white hover:rounded-2xl transition-all duration-300' onClick={() => scrollToSection("Home")} >Home</button></motion.li >
-                <motion.li whileTap={{ scale: 0.9 }} ><button className='hover:bg-blue-400 hover:p-3 hover:text-white hover:rounded-2xl transition-all duration-300' onClick={() => scrollToSection("Services")} >Services</button></motion.li>
-                <motion.li whileTap={{ scale: 0.9 }} ><button className='hover:bg-blue-400 hover:p-3 hover:text-white hover:rounded-2xl transition-all duration-300' onClick={() => scrollToSection("Reviews")} >Reviews</button></motion.li>
-                <motion.li whileTap={{ scale: 0.9 }} ><button className='hover:bg-blue-400 hover:p-3 hover:text-white hover:rounded-2xl transition-all duration-300' onClick={() => scrollToSection("Location")} >Location</button></motion.li>
-                <motion.li whileTap={{ scale: 0.9 }} ><button onClick={() => scrollToSection("Contact-us")} className='bg-blue-500 text-white p-3 rounded-2xl hover:bg-blue-600 transition-all duration-300 ' >Get a Quote</button></motion.li>
-            </ul> 
-    )
-}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <button key={link.id} onClick={() => scrollToSection(link.id)} 
+            className="text-gray-300 hover:text-white text-sm font-medium transition-colors relative group" >
+              {link.name}
+               </button>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+};
 
+export default Navbar;
