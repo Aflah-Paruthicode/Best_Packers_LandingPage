@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="flex space-x-4 mt-4">
             <a href="https://www.facebook.com/best.packers.movers.2024?mibextid=ZbWKwL" className="text-gray-400 hover:text-blue-500"><i className="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/invites/contact/?i=gsltl94li8ut&utm_content=u2j44sy" className="text-gray-400 hover:text-blue-500"><i className="fab fa-instagram"></i></a>
-            <a href="https://wa.me/+919567078537?text=Hi,%20I%20need%20help%20with%20moving!%20Can%20you%20provide%20details%20about%20your%20services%20and%20pricing%20?%20" className="text-gray-400 hover:text-blue-500"><i className="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/+919656268718?text=Hi,%20I%20need%20help%20with%20moving!%20Can%20you%20provide%20details%20about%20your%20services%20and%20pricing%20?%20" className="text-gray-400 hover:text-blue-500"><i className="fab fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white">Contact Us</h3>
           <p className="m-1 text-gray-400"><i class="m-1 fa-solid fa-location-dot"></i> Kallai, Kerala, India</p>
-          <p className="m-1 text-gray-400"><i class="m-1 fa-solid fa-phone"></i> +91 95670 78537 +919656268718</p>
+          <p className="m-1 text-gray-400"><i class="m-1 fa-solid fa-phone"></i> +919656268718</p>
           <p className="m-1 text-gray-400"><i class="m-1 fa-solid fa-envelope"></i> bestpackers- <br /> movers.help@gmail.com
           </p>
           <div className="mt-4">
