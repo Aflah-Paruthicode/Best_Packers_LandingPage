@@ -1,8 +1,5 @@
-
- 
- import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { features } from "../constants";
-
 
 const WhyChooseUs = () => {
   const containerVariants = {
@@ -67,6 +64,28 @@ const WhyChooseUs = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="mt-16 p-8 bg-gray-900 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div className="flex items-center gap-4">
+             <div className="flex -space-x-3">
+                {[1,2,3,4].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-gray-900 bg-gray-700 flex items-center justify-center text-[10px] text-white">
+                    <i className="fas fa-user"></i>
+                  </div>
+                ))}
+             </div>
+             <p className="text-white text-sm font-medium">
+                Joined by <span className="text-blue-400">1,000+</span> happy customers
+             </p>
+          </div>
+          <button onClick={() => window.open('https://wa.me/+919567078537?text=Hi best packers movers team 👋')} className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all">
+             Start Your Journey
+          </button>
         </motion.div>
       </div>
     </section>
