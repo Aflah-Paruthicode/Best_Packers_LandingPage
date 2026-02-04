@@ -23,12 +23,12 @@
 
 1. clone the project
 ```bash
-git clone https://github.com/Aflah-Paruthicode/best-packers.git
+git clone https://github.com/Aflah-Paruthicode/Best_Packers_LandingPage.git
 ```
 
 2. navigate into the project folder
 ```bash
-cd ./best_packers
+cd ./Best_Packers_LandingPage
 ```
 
 3. install dependencies
