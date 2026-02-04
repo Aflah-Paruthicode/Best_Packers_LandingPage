@@ -38,7 +38,7 @@ const Cards = memo(() => {
           viewport={{ once: true }}
           whileHover={{ y: -10 }}
           onClick={() => window.open(`https://wa.me/+919656268718?text=Hi, i would love to hear more about ${service.title} service`)}
-          className="group relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl bg-white"
+          className="group relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl bg-white cursor-pointer"
         >
           <img
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

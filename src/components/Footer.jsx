@@ -1,7 +1,9 @@
-
-import React, { useState } from "react";
+ 
+ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import { motion } from "framer-motion";
+
 
 
 const Footer = () => {
