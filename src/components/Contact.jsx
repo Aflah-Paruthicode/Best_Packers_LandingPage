@@ -8,10 +8,10 @@ const ContactForm = () => {
   const [isSent, setIsSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  let ServiceId = "import.meta.env.VITE_EMAIL_SERVICE_ID";
-  let TemplateId = "import.meta.env.VITE_EMAIL_TEMPLATE_ID";
-  let ApiKey = "import.meta.env.VITE_EMAIL_API_KEY";
-  let siteKey = "import.meta.env.VITE_RECAPTCHA_SITE_KEY";
+  let ServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+  let TemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+  let ApiKey = import.meta.env.VITE_EMAIL_API_KEY;
+  let siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

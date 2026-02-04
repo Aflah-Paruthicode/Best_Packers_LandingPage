@@ -29,7 +29,7 @@ const LocationMap = () => {
         </div>
 
         <div className="relative group">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} className="absolute top-10 left-10 z-[1000] hidden lg:block max-w-sm">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} className="absolute top-10 left-10 z-[1000]  max-w-sm">
             <div className="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white/20">
               <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
                 <i className="fa-solid fa-map-location-dot text-white text-xl"></i>

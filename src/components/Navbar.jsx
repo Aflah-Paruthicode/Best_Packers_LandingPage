@@ -9,19 +9,19 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
     { name: "Home", id: "Home" },
     { name: "Services", id: "Services" },
-    { name: "About", id: "About" },
+    { name: "Reviews", id: "Reviews" },
     { name: "Contact", id: "Contact-us" },
   ];
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smoot" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
@@ -33,11 +33,11 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <div className="w-14 h-12 rounded-2xl flex items-center px-2 bg-white justify-center shadow-lg shadow-blue-500/30">
+          <div className="w-14 h-14 rounded-2xl flex items-center px-2 bg-white justify-center shadow-lg shadow-blue-500/30">
             <img src="/logo.webp" alt="" />
           </div>
 
-          <span className="text-white font-bold text-xl tracking-tighter uppercase ">
+          <span className="text-white font-bold text-xl tracking-tighter uppercase hidden md:block">
             <span className="text-blue-500">Best Packers </span> And Movers
           </span>
         </div>
@@ -99,3 +99,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

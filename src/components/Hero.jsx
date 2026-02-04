@@ -131,7 +131,7 @@ const Hero = () => {
       <motion.a
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 md:bottom-10 md:right-10 w-14 h-14 md:w-16 md:h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-2xl z-[999]"
+        className="fixed bottom-6 right-6 md:bottom-10 md:right-10 w-14 h-14 md:w-16 md:h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-2xl z-[9999]"
         href="https://wa.me/+919656268718?text=Hi best packers movers team 👋"
       >
         <i className="fab fa-whatsapp"></i>

@@ -1,6 +1,6 @@
-import cardData from "../Card/cardData";
 import React, { memo } from "react";
 import { motion } from "framer-motion";
+import { cardData } from "../constants";
 
 const Services = () => {
   return (
@@ -24,7 +24,7 @@ const Services = () => {
 
 export default Services;
 
-const Cards = memo(() => {
+const Cards = () => {
   let services = cardData;
 
   return (
@@ -69,4 +69,4 @@ const Cards = memo(() => {
       ))}
     </div>
   );
-});
+};
