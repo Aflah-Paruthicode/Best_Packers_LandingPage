@@ -14,10 +14,10 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "", title:"" });
   const [isSent, setIsSent] = useState(false);
 
-  let ServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID
-  let TemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID
-  let ApiKey = import.meta.env.VITE_EMAIL_API_KEY
-  let siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
+  let ServiceId = 'import.meta.env.VITE_EMAIL_SERVICE_ID'
+  let TemplateId = 'import.meta.env.VITE_EMAIL_TEMPLATE_ID'
+  let ApiKey = 'import.meta.env.VITE_EMAIL_API_KEY'
+  let siteKey = 'import.meta.env.VITE_RECAPTCHA_SITE_KEY'
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

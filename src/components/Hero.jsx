@@ -1,35 +1,65 @@
-
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
 
 const Hero = () => {
-
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }
+    const element = document.getElementById(id);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 25, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "circOut" },
+    },
+  };
 
   return (
-    <section id='Home' class="relative w-full h-screen font-poppins flex items-center justify-center text-center">
-  <div class="absolute inset-0 bg-[url('/hero.webp')]  bg-cover bg-center bg-no-repeat">
-    <div class="absolute inset-0 bg-black/60"></div>  
-  </div>
+    <section
+      id="Home"
+      class="relative w-full min-h-screen font-poppins flex items-center justify-center text-center overflow-hidden"
+    >
+      <motion.div
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+        className="absolute inset-0 bg-[url('/hero.webp')] bg-cover bg-no-repeat bg-center"
+      >
+        <div className="absolute  bg-gradient-to-b from-black/80 via-black/50 to-black/90 inset-0" />
+      </motion.div>
 
-  <div class="relative mt-40 z-[999] px-6 md:px-12">
-    <h1 class="text-white text-4xl md:text-6xl font-bold leading-tight animate-fade-up">
-      Your Trusted Packers & Movers
-    </h1>
-    <p class="text-gray-200 mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-      Fast, safe, and hassle-free shifting across India. Get your free quote now!
-    </p>
-    
-    <motion.button whileTap={{ scale: 0.9 }} onClick={() => scrollToSection("Contact-us")}  class="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300">
-      Get a Free Quote
-    </motion.button>
-    <motion.a whileTap={{ scale: 0.9 }} className='fixed py-3 lg:py-5 lg:px-6 px-4 text-2xl lg:text-4xl bg-green-500 hover:text-[40px] hover:bg-green-600 text-white rounded-full bottom-5 lg:bottom-10 right-5 lg:right-52 transition-all duration-300 z-[999]' href="https://wa.me/+919567078537?text=Hi,%20I%20need%20help%20with%20moving!%20Can%20you%20provide%20details%20about%20your%20services%20and%20pricing%20?%20"> <i className="fab fa-whatsapp"></i><span class="absolute inset-0 animate-ping bg-green-500 opacity-50 rounded-full"></span> </motion.a>
-  </div>
-</section>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="relative z-10 px-4 md:px-12 text-center w-full max-w-6xl"
+      >
+        <motion.div variants={itemVariants} className="mb-6 inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+          <span className=" h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+          <span className="text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase ">
+            india's most trusted network
+          </span>
+        </motion.div>  
 
-  )
-}
+        <motion.h1  className="text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tighter"> Relocation
+          <br className="hidden md:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">
+            Perfected.
+          </span>
+          </motion.h1> 
 
-export default Hero
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;
