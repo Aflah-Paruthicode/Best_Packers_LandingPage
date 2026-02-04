@@ -24,7 +24,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="Home" class="relative w-full min-h-screen font-poppins flex items-center justify-center text-center overflow-hidden">
+    <section
+      id="Home"
+      class="relative w-full min-h-screen font-poppins flex items-center justify-center text-center overflow-hidden"
+    >
       <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -34,27 +37,46 @@ const Hero = () => {
         <div className="absolute  bg-gradient-to-b from-black/80 via-black/50 to-black/90 inset-0" />
       </motion.div>
 
-      <motion.div initial="hidden" animate="visible" variants={containerVariants} className="relative z-10 px-4 md:px-12 text-center w-full max-w-6xl">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="relative z-10 px-4 md:px-12 text-center w-full max-w-6xl"
+      >
         <motion.div
           variants={itemVariants}
           className="mb-6 inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
         >
           <span className=" h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-          <span className="text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase ">india's most trusted network</span>
+          <span className="text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase ">
+            india's most trusted network
+          </span>
         </motion.div>
 
-        <motion.h1 variants={itemVariants} className="text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tighter">
-          {" "}
-          Relocation
+        <motion.h1
+          variants={itemVariants}
+          className="text-white text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tighter"
+        >
+          
+          Relocation {"  "}
           <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">Perfected.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">
+            Perfected.
+          </span>
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="text-gray-300 mt-6 text-base md:text-xl max-w-xl md:max-w-2xl mx-auto leading-relaxed px-2">
-          Fast, safe, and professional shifting services across india. We handle the heavy lifting while you focus on your new beginning.
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-300 mt-6 text-sm sm:text-base md:text-xl max-w-xl md:max-w-2xl mx-auto leading-relaxed px-2"
+        >
+          Fast, safe, and professional shifting services across india. We handle
+          the heavy lifting while you focus on your new beginning.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 px-6">
+        <motion.div
+          variants={itemVariants}
+          className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 px-6"
+        >
           <motion.button
             whileHover={{
               scale: 1.05,
@@ -83,17 +105,25 @@ const Hero = () => {
         >
           <div className="text-center">
             <h3 className="text-white font-bold text-xl md:text-2xl">1000+</h3>
-            <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mt-1">Families Moved</p>
+            <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mt-1">
+              Families Moved
+            </p>
           </div>
 
           <div className="text-center">
             <h3 className="text-white font-bold text-xl md:text-2xl">99.9%</h3>
-            <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mt-1">Safe Delivery</p>
+            <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mt-1">
+              Safe Delivery
+            </p>
           </div>
 
           <div className="text-center col-span-2 md:col-span-1">
-            <h3 className="text-white font-bold text-xl md:text-2xl">Instant</h3>
-            <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mt-1">Live Tracking</p>
+            <h3 className="text-white font-bold text-xl md:text-2xl">
+              Instant
+            </h3>
+            <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mt-1">
+              Live Tracking
+            </p>
           </div>
         </motion.div>
       </motion.div>
